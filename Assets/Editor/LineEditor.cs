@@ -4,27 +4,21 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(LineDrawer))]
-public class LineEditor : Editor
+public class LineEditor : PositionHandlerEditor
 {
     private void OnSceneGUI()
     {
         LineDrawer line = target as LineDrawer;
 
-        Vector3 start = line.transform.TransformPoint(line.startingPoint);
-        Vector3 end = line.transform.TransformPoint(line.endPoint);
+        Vector3 start = line.StartingPoint;
+        Vector3 end = line.EndPoint;
         Handles.color = line.SceneViewLineColor;
 
-        EditorGUI.BeginChangeCheck();
-
-        start = Handles.PositionHandle(start, Quaternion.identity);
-        end = Handles.PositionHandle(end, Quaternion.identity);
-
-        if(EditorGUI.EndChangeCheck())
+        if (base.CreatePositionHandle(ref start) || base.CreatePositionHandle(ref end))
         {
-            Undo.RecordObject(line, "Line points edited");
-
-            line.startingPoint = line.transform.InverseTransformPoint(start);
-            line.endPoint = line.transform.InverseTransformPoint(end);
+            Undo.RecordObject(line, "start point change");
+            line.StartingPoint = start;
+            line.EndPoint = end;
         }
 
         Handles.DrawLine(start, end);
