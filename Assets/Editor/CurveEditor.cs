@@ -6,18 +6,19 @@ using UnityEditor;
 [CustomEditor(typeof(BezierCurve))]
 public class CurveEditor : PositionHandlerEditor
 {
-    int smoothness;
+    float debugCurveWidth;
+    Color debugCurveColor;
 
     private void OnSceneGUI()
     {
         BezierCurve bezierCurve = target as BezierCurve;
 
-        smoothness = bezierCurve.Smoothness;
-        Handles.color = bezierCurve.CurveColor;
+        debugCurveWidth = bezierCurve.curveWidth;
+        debugCurveColor = bezierCurve.curveColor;
 
         Vector3[] points = CreateCurveHandles(bezierCurve.Points, bezierCurve);
 
-        DrawCurve(points, bezierCurve);        
+        Handles.DrawBezier(points[0], points[3], points[1], points[2], debugCurveColor, null, debugCurveWidth);
     }
 
     private Vector3[] CreateCurveHandles(Vector3[] points, BezierCurve curve)
@@ -41,17 +42,5 @@ public class CurveEditor : PositionHandlerEditor
             curve.Points = points;
 
         return points;
-    }
-
-    private void DrawCurve(Vector3[] points, BezierCurve curve)
-    {
-        Vector3 currentPoint = points[0], nextPoint;
-
-        for(int i = 1; i < smoothness; i++)
-        {
-            nextPoint = curve.Bezier((float)i / smoothness);
-            Handles.DrawLine(currentPoint, nextPoint);
-            currentPoint = nextPoint;
-        }
     }
 }

@@ -7,10 +7,14 @@ public class BezierCurve : MonoBehaviour
     [SerializeField]
     Vector3[] points = new Vector3[] { new Vector3(-1, -1), new Vector3(-1, 1), new Vector3(1, 1), new Vector3(1, -1) };
     [SerializeField]
-    Color sceneViewCurveColor = Color.white;
-    [SerializeField]
     int smoothness = 10;
 
+#if UNITY_EDITOR
+    public Color curveColor = Color.white;
+    public float curveWidth = 1f;
+#endif
+
+    // transform between world and local space
     public Vector3[] Points
     {
         get {
@@ -35,15 +39,31 @@ public class BezierCurve : MonoBehaviour
         }
     }
 
-    public int Smoothness => smoothness;
-    public Color CurveColor => sceneViewCurveColor;
-
-    public Vector3 Bezier(float t)
+    private Vector3 BezierPoint(float t)
     {
         t = Mathf.Clamp01(t);
         float b = 1 - t;
 
         // func of bezier
         return points[0] * b * b * b + points[1] * 3 * t * b * b + points[2] * 3 * t * t * b + points[3] * t * t * t;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawLine(points[0], points[1]);
+        Gizmos.DrawLine(points[3], points[2]);
+    }
+
+    public Vector3[] GetBezierPoints(Vector3[] points)
+    {
+        Vector3[] bezierPoints = new Vector3[smoothness + 1];
+
+        bezierPoints[0] = points[0];
+        bezierPoints[bezierPoints.Length - 1] = points[points.Length - 1];
+
+        for (int i = 1; i < smoothness; i++)
+            bezierPoints[i] = BezierPoint((float)i / smoothness);
+
+        return bezierPoints;
     }
 }
