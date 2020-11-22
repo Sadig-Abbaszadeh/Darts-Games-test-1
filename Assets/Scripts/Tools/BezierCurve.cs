@@ -9,6 +9,33 @@ public class BezierCurve : MonoBehaviour
     [SerializeField]
     int smoothness = 10;
 
+    // transform between world and local space
+    public Vector3[] Points
+    {
+        get
+        {
+            Vector3[] _p = new Vector3[points.Length];
+
+            for (int i = 0; i < points.Length; i++)
+            {
+                _p[i] = transform.TransformPoint(points[i]);
+            }
+
+            return _p;
+        }
+        set
+        {
+            Vector3[] _p = new Vector3[value.Length];
+
+            for (int i = 0; i < value.Length; i++)
+            {
+                _p[i] = transform.InverseTransformPoint(value[i]);
+            }
+
+            points = _p;
+        }
+    }
+
     public Vector3[] bezierCurvePoints { get; private set; }
 
 #if UNITY_EDITOR
@@ -17,31 +44,6 @@ public class BezierCurve : MonoBehaviour
     [SerializeField]
     bool drawGizmos = true;
 #endif
-
-    // transform between world and local space
-    public Vector3[] Points
-    {
-        get {
-            Vector3[] _p = new Vector3[points.Length];
-
-            for(int i = 0; i < points.Length; i++)
-            {
-                _p[i] = transform.TransformPoint(points[i]);
-            }
-
-            return _p;
-        }
-        set {
-            Vector3[] _p = new Vector3[value.Length];
-
-            for(int i = 0; i < value.Length; i++)
-            {
-                _p[i] = transform.InverseTransformPoint(value[i]);
-            }
-
-            points = _p;
-        }
-    }
 
     private void Awake()
     {
@@ -78,6 +80,6 @@ public class BezierCurve : MonoBehaviour
         for (int i = 1; i < smoothness; i++)
             bezierPoints[i] = BezierPoint((float)i / smoothness);
 
-        return bezierPoints
+        return bezierPoints;
     }
 }
