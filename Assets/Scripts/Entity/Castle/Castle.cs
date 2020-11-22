@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Castle", menuName = "Entity/Castle")]
+[System.Serializable]
 public class Castle : DamageTakers
 {
     

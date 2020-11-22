@@ -1,0 +1,418 @@
+fileFormatVersion: 2
+guid: c151a9bced33ec644a8b8e94eb9c1e23
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6129844539758822726
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_0
+  - first:
+      213: 4794383120672980249
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_1
+  - first:
+      213: -1276720629965433822
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_2
+  - first:
+      213: -1859280891110995070
+    second: Enemy 1
+  - first:
+      213: -4125152290134229567
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_4
+  - first:
+      213: -3839689398905073522
+    second: Enemy 2
+  - first:
+      213: 7714713895967435624
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_6
+  - first:
+      213: 9191263857458903307
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_7
+  - first:
+      213: -4753608823446653282
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_8
+  - first:
+      213: 6212767949189831457
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_9
+  - first:
+      213: -7198610435431394439
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_10
+  - first:
+      213: 8428296193635053014
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_11
+  - first:
+      213: -1900353764971171547
+    second: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 262
+        width: 104
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64541b0b125911550800000000000000
+      internalID: 6129844539758822726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_1
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 266
+        width: 96
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91d77d8eb02198240800000000000000
+      internalID: 4794383120672980249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 260
+        width: 116
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2245f75f95d284ee0800000000000000
+      internalID: -1276720629965433822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy 1
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 264
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b48a361e18236e0800000000000000
+      internalID: -1859280891110995070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_4
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 144
+        width: 116
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cdf82e19d380c6c0800000000000000
+      internalID: -4125152290134229567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy 2
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 192
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e801e62d5dea6bac0800000000000000
+      internalID: -3839689398905073522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 24
+        width: 212
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ba8e00a6b201b60800000000000000
+      internalID: 7714713895967435624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_7
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 60
+        width: 216
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0979bce7cded8f70800000000000000
+      internalID: 9191263857458903307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_8
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 144
+        width: 112
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96bc45f5f9c70eb0800000000000000
+      internalID: -4753608823446653282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_9
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 28
+        width: 104
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b546b788f283650800000000000000
+      internalID: 6212767949189831457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_10
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 8
+        width: 108
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97311b7e2f5691c90800000000000000
+      internalID: -7198610435431394439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_11
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 8
+        width: 104
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dde46babb257f470800000000000000
+      internalID: 8428296193635053014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kisspng-pixel-art-sprite-belhasa-six-construct-llc-5b20b8f27fa9b1.1513718115288711545229_12
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 12
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521315bb15690a5e0800000000000000
+      internalID: -1900353764971171547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewEnemy", menuName = "Entity/Enemy")]
+[System.Serializable]
 public class Enemy : DamageTakers
 {
-    public int goldBonus, damage;
-    public float moveSpeed;
+    public int goldBonus;
+    public float moveSpeed, damage;
 
     public override void Die()
     {

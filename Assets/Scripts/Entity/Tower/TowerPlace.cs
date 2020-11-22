@@ -11,17 +11,21 @@ public class TowerPlace : MonoBehaviour
 
     static TowerPlace selectedPlace = null;
 
+    [HideInInspector]
     public TowerController tower;
 
     private void OnMouseDown()
     {
-        if(selectedPlace != null)
+        if (selectedPlace != null)
         {
             selectedPlace.TouchOn(this);
+            selectedPlace = null;
         }
-
-        TouchOn(this);
-        selectedPlace = this;
+        else
+        {
+            TouchOn(this);
+            selectedPlace = this;
+        }
     }
 
     public void PurchaseTower(GameObject towerPrefab)
@@ -30,31 +34,26 @@ public class TowerPlace : MonoBehaviour
 
         if(gameManager.CanSpendMoney(tc.tower.purchaseCost))
         {
-            Instantiate(towerPrefab, transform);
-            tc.Init(gameManager);
+            tower = Instantiate(towerPrefab, transform).GetComponent<TowerController>();
+            tower.transform.localPosition = Vector3.zero;
+            tower.Init(gameManager);
         }
 
         TouchOn(null);
+        selectedPlace = null;
     }
 
     private void TouchOn(TowerPlace commandSender)
     {
         if(commandSender == this)
         {
-            if(tower != null)
+            if(tower == null)
             {
-                tower.TryUpgrade(true);
-            }
-            else
-            {
-                availableTowers.SetActive(true);
+                availableTowers.SetActive(!availableTowers.activeSelf);
             }
         }
         else
         {
-            if (tower != null)
-                tower.TryUpgrade(false);
-
             availableTowers.SetActive(false);
         }
     }

@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        OnWaveEnded?.Invoke(0);
+        OnWaveEnded?.Invoke(1);
         ChangeMoney(0);
 
         StartCoroutine(StartNewWave(timeBetweenSpawns));
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartNewWave(float secs)
     {
+        Debug.Log("starting");
         yield return new WaitForSeconds(secs);
 
         currentEnemyCount = spawner.SpawnNewWave(Wave);
@@ -68,20 +69,29 @@ public class GameManager : MonoBehaviour
         ChangeMoney(_enemy.enemy.goldBonus);
         killedEnemies++;
 
-        if((currentEnemyCount--) == 0)
-        {
-            OnWaveEnded?.Invoke(Wave);
-            StartCoroutine(StartNewWave(timeBetweenSpawns));
-        } 
+        CheckWave();
     }
 
     private void EnemyReachedCastle(EnemyController _enemy)
     {
         CastleController c = castles[_enemy.PathwayIndex];
 
+        CheckWave();
+
         if(c.TakeDamage(_enemy.enemy.damage))
         {
             GameOver();
+        }
+    }
+
+    private void CheckWave()
+    {
+        currentEnemyCount--;
+        if (currentEnemyCount == 0)
+        {
+            Debug.Log("wave over");
+            OnWaveEnded?.Invoke(Wave);
+            StartCoroutine(StartNewWave(timeBetweenSpawns));
         }
     }
 
@@ -95,7 +105,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        OnGameOver?.Invoke(Wave, killedEnemies);
+        OnGameOver?.Invoke(Wave - 1, killedEnemies);
     }
 
     public bool CanSpendMoney(int amount)
@@ -109,5 +119,12 @@ public class GameManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+        EnemyController.OnEnemyDied -= EnemyDied;
+        EnemyController.OnEnemyReachedCastle -= EnemyReachedCastle;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public class TowerController : MonoBehaviour
 {
 #if UNITY_EDITOR
@@ -18,7 +19,9 @@ public class TowerController : MonoBehaviour
 
     bool upgradePrompt = false;
 
-    List<EnemyController> targets = new List<EnemyController>();
+    public List<EnemyController> targets = new List<EnemyController>();
+
+    static TowerController activeTower;
 
     EnemyController target = null;
 
@@ -42,9 +45,9 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    public void TryUpgrade(bool upgrade)
+    public void TryUpgrade(TowerController tc)
     {
-        if(upgrade)
+        if(tc == this)
         {
             if(upgradePrompText.gameObject.activeSelf)
             {
@@ -86,6 +89,20 @@ public class TowerController : MonoBehaviour
         return e;
     }
 
+    private void OnMouseDown()
+    {
+        if (activeTower != null)
+        {
+            activeTower.TryUpgrade(this);
+            activeTower = null;
+        }
+        else
+        {
+            TryUpgrade(this);
+            activeTower = this;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if(drawGizmos)
@@ -96,14 +113,18 @@ public class TowerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.layer == 6)
+        if(col.gameObject.layer == 8)
         {
             EnemyController enemyController = col.GetComponent<EnemyController>();
 
             enemyController.OnParticularEnemyDied += EnemyDied;
 
             if (target == null)
+            {
                 target = enemyController;
+                StartCoroutine(TurnTowardsTarget());
+                StartCoroutine(Fire());
+            }
             else
                 targets.Add(enemyController);
         }
@@ -111,14 +132,17 @@ public class TowerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.layer == 6)
+        if (col.gameObject.layer == 8)
         {
             EnemyController enemyController = col.GetComponent<EnemyController>();
 
             enemyController.OnParticularEnemyDied -= EnemyDied;
 
             if (enemyController == target)
+            {
+                Debug.Log("this target left");
                 target = GetNewTarget();
+            }
             else
                 targets.Remove(enemyController);
         }

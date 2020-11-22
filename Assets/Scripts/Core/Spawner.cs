@@ -14,15 +14,17 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     BezierCurve[] paths;
 
+    public static event Action<int> OnWaveSpawnCompleted;
+
     public int SpawnNewWave(int wave)
     {
         int enemyCount = UnityEngine.Random.Range(wave, wave + maxRandomRange + 1);
-        StartCoroutine(SpawnWave(timeBetweenSpawns, enemyCount));
+        StartCoroutine(SpawnWave(timeBetweenSpawns, enemyCount, wave));
 
         return enemyCount;
     }
 
-    private IEnumerator SpawnWave(float spawnTime, int amount)
+    private IEnumerator SpawnWave(float spawnTime, int amount, int wave)
     {
         for(int i = 0; i < amount; i++)
         {
@@ -31,5 +33,7 @@ public class Spawner : MonoBehaviour
 
             yield return new WaitForSeconds(spawnTime);
         }
+
+        OnWaveSpawnCompleted?.Invoke(wave);
     }
 }

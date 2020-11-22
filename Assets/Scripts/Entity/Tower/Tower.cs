@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewTower", menuName = "Entity/Tower")]
+[System.Serializable]
 public class Tower : UpgradableObject
 {
     public int purchaseCost;

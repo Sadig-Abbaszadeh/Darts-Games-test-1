@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : ScriptableObject
+[System.Serializable]
+public class Entity
 {
     public string entityName;
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CastleController : MonoBehaviour
@@ -7,9 +8,19 @@ public class CastleController : MonoBehaviour
     [SerializeField]
     Castle _castle;
     [SerializeField]
-    HealthBarController healthBar;
+    TMP_Text healthText;
+    [SerializeField]
+    bool showIndividualHealth;
+    //
 
     public Castle castle => _castle;
+
+    private void Start()
+    {
+        healthText.gameObject.SetActive(showIndividualHealth);
+
+        ShowHealth();
+    }
 
     public float MaxHealth { get; private set; }
 
@@ -19,8 +30,13 @@ public class CastleController : MonoBehaviour
     {
         bool isCastleDead = castle.TakeDamage(damage);
 
-        healthBar.UpdateHealth();
+        ShowHealth();
 
         return isCastleDead;
+    }
+
+    private void ShowHealth()
+    {
+        healthText.text = (int)castle.health + "";
     }
 }

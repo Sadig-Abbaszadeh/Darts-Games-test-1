@@ -21,6 +21,26 @@ public class CurveEditor : PositionHandlerEditor
         Handles.DrawBezier(points[0], points[3], points[1], points[2], debugCurveColor, null, debugCurveWidth);
     }
 
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        BezierCurve curve = target as BezierCurve;
+
+        GUILayout.BeginHorizontal();
+
+        if(GUILayout.Button("Draw the line"))
+        {
+            curve.DrawAndRemoveLineInWorld(true);
+        }
+        if(GUILayout.Button("Remove the line"))
+        {
+            curve.DrawAndRemoveLineInWorld(false);
+        }
+
+        GUILayout.EndHorizontal();
+    }
+
     private Vector3[] CreateCurveHandles(Vector3[] points, BezierCurve curve)
     {
         Vector3 point;

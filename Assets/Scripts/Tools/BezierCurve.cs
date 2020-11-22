@@ -82,4 +82,25 @@ public class BezierCurve : MonoBehaviour
 
         return bezierPoints;
     }
+
+    public void DrawAndRemoveLineInWorld(bool draw)
+    {
+        LineRenderer lr;
+
+        if(TryGetComponent(out lr))
+        {
+            if (draw)
+            {
+                Vector3[] bps = GetBezierPoints(Points);
+
+                lr.positionCount = bps.Length;
+                lr.SetPositions(bps);
+                //lr.Simplify(.1f);
+            }
+            else
+            {
+                lr.positionCount = 0;
+            }
+        }
+    }
 }
