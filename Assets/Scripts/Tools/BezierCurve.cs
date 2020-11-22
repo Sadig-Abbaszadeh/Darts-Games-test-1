@@ -9,9 +9,13 @@ public class BezierCurve : MonoBehaviour
     [SerializeField]
     int smoothness = 10;
 
+    public Vector3[] bezierCurvePoints { get; private set; }
+
 #if UNITY_EDITOR
     public Color curveColor = Color.white;
     public float curveWidth = 1f;
+    [SerializeField]
+    bool drawGizmos = true;
 #endif
 
     // transform between world and local space
@@ -39,6 +43,11 @@ public class BezierCurve : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        bezierCurvePoints = GetBezierPoints(Points);
+    }
+
     private Vector3 BezierPoint(float t)
     {
         t = Mathf.Clamp01(t);
@@ -50,8 +59,13 @@ public class BezierCurve : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawLine(points[0], points[1]);
-        Gizmos.DrawLine(points[3], points[2]);
+        if (drawGizmos)
+        {
+            Vector3[] _points = Points;
+
+            Gizmos.DrawLine(_points[0], _points[1]);
+            Gizmos.DrawLine(_points[3], _points[2]);
+        }
     }
 
     public Vector3[] GetBezierPoints(Vector3[] points)
@@ -64,6 +78,6 @@ public class BezierCurve : MonoBehaviour
         for (int i = 1; i < smoothness; i++)
             bezierPoints[i] = BezierPoint((float)i / smoothness);
 
-        return bezierPoints;
+        return bezierPoints
     }
 }

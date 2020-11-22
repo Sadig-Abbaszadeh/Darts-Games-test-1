@@ -250,10 +250,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {x: -7.4304175, y: -0.4444101, z: 0}
-  - {x: -2.3833652, y: 2.452534, z: 0}
-  - {x: -3.7034416, y: -5.1905603, z: 0}
-  - {x: 6.5334635, y: -4.3546615, z: 0}
+  - {x: -6.959408, y: -1.0410991, z: 0}
+  - {x: -4.082452, y: 1.8630867, z: 0}
+  - {x: 4.000252, y: 0.835603, z: 0}
+  - {x: 5.356532, y: -3.6714582, z: 0}
   smoothness: 10
   curveColor: {r: 1, g: 1, b: 1, a: 1}
-  curveWidth: 3
+  curveWidth: 4
+  drawGizmos: 1
