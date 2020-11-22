@@ -5,23 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewTower", menuName = "Entity/Tower")]
 public class Tower : UpgradableObject
 {
-    public float damage, fireRate;
+    public int purchaseCost;
 
-    public override bool Upgrade()
+    public float damage, fireRate, range;
+
+    public void Upgrade()
     {
-        bool upgraded = base.Upgrade();
-        if(upgraded)
-        {
-            level += 1;
-            upgradeCost += upgradeCostIncrease;
+        level += 1;
+        upgradeCost += upgradeCostIncrease;
 
-            float a = upgradePercent / 100;
+        float a = upgradePercent / 100;
 
-            damage *= a;
-            fireRate *= a;
-            health *= a;
-        }
-
-        return upgraded;
+        damage *= (1 + a);
+        fireRate *= (1 - a);
+        health *= (1 + a);
     }
 }

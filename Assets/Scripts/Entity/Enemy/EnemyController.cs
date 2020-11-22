@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
 
     public static event Action<EnemyController> OnEnemyReachedCastle;
     public static event Action<EnemyController> OnEnemyDied;
+    public event Action<EnemyController> OnParticularEnemyDied;
 
     Vector3 target;
     int targetIndex = 0;
@@ -64,6 +65,7 @@ public class EnemyController : MonoBehaviour
         if(enemy.TakeDamage(damage))
         {
             OnEnemyDied?.Invoke(this);
+            OnParticularEnemyDied?.Invoke(this);
 
             Destroy(gameObject);
         }

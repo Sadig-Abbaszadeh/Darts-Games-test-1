@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public static event Action<int> OnWaveStarted;
     public static event Action<int> OnWaveEnded;
     public static event Action<int, int> OnGameOver;
+    public static event Action<int> OnMoneyChanged;
 
     private void Awake()
     {
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         OnWaveEnded?.Invoke(0);
+        ChangeMoney(0);
+
         StartCoroutine(StartNewWave(timeBetweenSpawns));
     }
 
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     private void EnemyDied(EnemyController _enemy)
     {
-        Money += _enemy.enemy.goldBonus;
+        ChangeMoney(_enemy.enemy.goldBonus);
         killedEnemies++;
 
         if((currentEnemyCount--) == 0)
@@ -82,10 +85,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void ChangeMoney(int amount)
+    {
+        Money += amount;
+        OnMoneyChanged?.Invoke(Money);
+    }
+
     private void GameOver()
     {
         Time.timeScale = 0;
 
         OnGameOver?.Invoke(Wave, killedEnemies);
+    }
+
+    public bool CanSpendMoney(int amount)
+    {
+        if(Money - amount > 0)
+        {
+            ChangeMoney(-amount);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

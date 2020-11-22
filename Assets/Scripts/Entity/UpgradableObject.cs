@@ -11,5 +11,5 @@ public class UpgradableObject : Entity
 
     public int level { get; protected set; } = 1;
 
-    public virtual bool Upgrade() => level < maxUpgrades;
+    public bool Upgradable => level < maxUpgrades;
 }

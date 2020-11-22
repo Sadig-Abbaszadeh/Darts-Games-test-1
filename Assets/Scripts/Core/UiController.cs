@@ -15,15 +15,10 @@ public class UiController : MonoBehaviour
     private void Awake()
     {
         EnemyController.OnEnemyReachedCastle += EnemyReachedCastle;
-        EnemyController.OnEnemyDied += EnemyDied;
+        GameManager.OnMoneyChanged += MoneyChanged;
         GameManager.OnWaveEnded += WaveEnded;
         GameManager.OnWaveStarted += WaveStarted;
         GameManager.OnGameOver += GameOver;
-    }
-
-    private void Start()
-    {
-        EnemyDied(null);
     }
 
     private void GameOver(int wave, int killedEnemies)
@@ -44,12 +39,12 @@ public class UiController : MonoBehaviour
     {
         currentWaveText.gameObject.SetActive(false);
         incomingWaveText.gameObject.SetActive(true);
-        incomingWaveText.text = "Wave " + (wave + 1) + " is incoming";
+        incomingWaveText.text = "Wave " + (wave + 1) + " is coming soon";
     }
 
-    private void EnemyDied(EnemyController _enemy)
+    private void MoneyChanged(int money)
     {
-        goldText.text = "" + gameManager.Money;
+        goldText.text = "" + money;
     }
 
     private void EnemyReachedCastle(EnemyController _enemy)

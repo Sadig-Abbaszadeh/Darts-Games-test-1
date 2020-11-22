@@ -237,8 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 11400000, guid: de614ce8398080f4089b266d03a60519, type: 2}
-  path: {fileID: 1708152048}
-  pathwayIndex: 0
 --- !u!212 &719833317
 SpriteRenderer:
   m_ObjectHideFlags: 0
