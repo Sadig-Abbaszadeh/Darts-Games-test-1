@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopAllCoroutines();
         EnemyController.OnEnemyDied -= EnemyDied;
         EnemyController.OnEnemyReachedCastle -= EnemyReachedCastle;
     }

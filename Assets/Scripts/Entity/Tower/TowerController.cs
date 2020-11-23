@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -12,10 +11,8 @@ public class TowerController : MonoBehaviour
 #endif
     [SerializeField]
     Tower _tower;
-    [SerializeField]
-    TMP_Text upgradePrompText;
 
-    GameManager gameManager;
+    public GameManager gameManager { get; private set; }
 
     bool upgradePrompt = false;
 
@@ -45,37 +42,6 @@ public class TowerController : MonoBehaviour
         }
     }
 
-    public void TryUpgrade(TowerController tc)
-    {
-        if(tc == this)
-        {
-            if(upgradePrompText.gameObject.activeSelf)
-            {
-                UpgradeTower();
-            }
-            else
-            {
-                upgradePrompText.text = "Upgrade for " + tower.upgradeCost + " ?";
-            }
-
-            upgradePrompText.gameObject.SetActive(!upgradePrompText.gameObject.activeSelf);
-        }
-        else
-        {
-            upgradePrompText.gameObject.SetActive(false);
-        }
-    }
-
-    public bool UpgradeTower()
-    {
-        bool upgradable = tower.Upgradable && gameManager.CanSpendMoney(tower.upgradeCost);
-
-        if (upgradable)
-            tower.Upgrade();
-
-        return upgradable;
-    }
-
     private EnemyController GetNewTarget()
     {
         EnemyController e = null;
@@ -87,20 +53,6 @@ public class TowerController : MonoBehaviour
         }
 
         return e;
-    }
-
-    private void OnMouseDown()
-    {
-        if (activeTower != null)
-        {
-            activeTower.TryUpgrade(this);
-            activeTower = null;
-        }
-        else
-        {
-            TryUpgrade(this);
-            activeTower = this;
-        }
     }
 
     private void OnDrawGizmos()
